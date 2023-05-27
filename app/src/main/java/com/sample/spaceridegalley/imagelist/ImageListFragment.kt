@@ -51,11 +51,13 @@ class ImageListFragment : Fragment() {
                 viewModel.uiState.collect { uiState->
                     when(uiState){
                         is ListImageUiState.LOADED -> {
+                            binding.waitMsgView.visibility = View.GONE
                             binding.gridList.visibility = View.VISIBLE
                             (binding.gridList.adapter as ImageListRecyclerViewAdapter).submitItems(uiState.imageList)
                         }
                         ListImageUiState.UNINITIALIZED -> {
-                            binding.gridList.visibility = View.GONE
+                            binding.gridList.visibility = View.INVISIBLE
+                            binding.waitMsgView.visibility = View.VISIBLE
                         }
                     }
                 }
