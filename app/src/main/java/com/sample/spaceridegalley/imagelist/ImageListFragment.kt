@@ -12,10 +12,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sample.spaceridegalley.databinding.FragmentImageListListBinding
+import com.sample.spaceridegalley.util.Constants.ColumnCount
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-private const val columnCount = 2
 /**
  * A fragment representing a list of Items.
  */
@@ -35,8 +35,8 @@ class ImageListFragment : Fragment() {
         _binding = FragmentImageListListBinding.inflate(inflater, container, false)
         binding.gridList.apply {
             layoutManager = when {
-                columnCount <= 1 -> LinearLayoutManager(context)
-                else -> GridLayoutManager(context, columnCount)
+                ColumnCount <= 1 -> LinearLayoutManager(context)
+                else -> GridLayoutManager(context, ColumnCount)
             }
             adapter = ImageListRecyclerViewAdapter(mutableListOf())
             setHasFixedSize(true)
@@ -64,4 +64,9 @@ class ImageListFragment : Fragment() {
             }
         }
     }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

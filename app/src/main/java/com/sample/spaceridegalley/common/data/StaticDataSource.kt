@@ -13,12 +13,8 @@ import javax.inject.Inject
 class StaticDataSource  @Inject constructor (private val appContext : Context) : ImageDataSource {
 
     /* Raed from static file*/
-    var count = 5
     override suspend fun getGalleryItems(): List<GalleryItem> {
-        count++
-        return withContext(Dispatchers.IO){
-            readRawJson(appContext , R.raw.nasa_details)
-        }
+        return readRawJson(appContext , R.raw.nasa_details)
     }
 }
 
