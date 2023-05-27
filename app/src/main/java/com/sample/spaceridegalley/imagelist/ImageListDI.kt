@@ -6,13 +6,12 @@ import com.sample.spaceridegalley.common.data.StaticDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AnalyticsModule {
+object ImageListModule {
 
     @Provides
     fun provideImageListUseCase(

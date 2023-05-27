@@ -1,26 +1,38 @@
 package com.sample.spaceridegalley.imagedetails.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sample.spaceridegalley.common.data.StaticDataSource
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.viewpager2.widget.ViewPager2
 import com.sample.spaceridegalley.databinding.FragmentImageDetailBinding
-import javax.sql.DataSource
+import com.sample.spaceridegalley.imagelist.ImageListRecyclerViewAdapter
+import com.sample.spaceridegalley.util.Constants.SelectedPositionKey
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+/**
+ * A fragment representing a detail of Item.
+ */
+@AndroidEntryPoint
 class ImageDetailFragment : Fragment() {
 
-    private lateinit var viewModel: ImageDetailViewModel
     private var selectedPosition = 0
+
     private var _binding: FragmentImageDetailBinding? = null
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
+    private val viewModel: ImageDetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-           selectedPosition = it.getInt("selectedPosition")
+           selectedPosition = it.getInt(SelectedPositionKey)
         }
     }
 
@@ -29,13 +41,39 @@ class ImageDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentImageDetailBinding.inflate(inflater, container, false)
-        binding.asdasd.text = arguments?.getString("selectedPosition") ?: "sdfsdf"
-        binding.asdasd2.text = "sdfsdfsdfsfdsdfsdfsdfsdfsdf"
+        binding.viewpager.apply {
+            adapter = ImageDetailsViewPagerAdapter(mutableListOf())
+            this.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+        }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { uiState->
+                    when(uiState){
+                        is DetailImageUiState.LOADED -> {
+                            binding.waitMsgView.visibility = View.GONE
+                            binding.viewpager.visibility = View.VISIBLE
+                            (binding.viewpager.adapter as ImageDetailsViewPagerAdapter).submitItems(uiState.allImageList)
+                        }
+                        DetailImageUiState.UNINITIALIZED -> {
+                            binding.viewpager.visibility = View.INVISIBLE
+                            binding.waitMsgView.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

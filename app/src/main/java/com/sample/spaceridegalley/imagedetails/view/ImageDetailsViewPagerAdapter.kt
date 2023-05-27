@@ -1,4 +1,4 @@
-package com.sample.spaceridegalley.imagelist
+package com.sample.spaceridegalley.imagedetails.view
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -10,14 +10,17 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.sample.spaceridegalley.R
+import com.sample.spaceridegalley.databinding.FragmentImageDetailSingleBinding
 import com.sample.spaceridegalley.databinding.FragmentImageListSingleBinding
 
-class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel>) : RecyclerView.Adapter<ImageListRecyclerViewAdapter.ViewHolder>() {
+
+class ImageDetailsViewPagerAdapter(private val values: MutableList<DetailItemModel>) : RecyclerView.Adapter<ImageDetailsViewPagerAdapter.ViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitItems(newValues: List<ListItemModel>){
+    fun submitItems(newValues: List<DetailItemModel> ){
         values.clear()
         values.addAll(newValues)
         notifyDataSetChanged()
@@ -25,7 +28,7 @@ class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         return ViewHolder(
-            FragmentImageListSingleBinding.inflate(
+            FragmentImageDetailSingleBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -54,21 +57,23 @@ class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel
         }
 
         Glide.with(holder.itemView.context)
-            .load(item.lowQUrl) //passing your url to load image.
+            .load(item.hdurl) //passing your url to load image.
             .apply(requestOptions) // here you have all options you need
             .into(holder.imgView) //pass imageView reference to appear the image.
 
-        holder.title.text = item.title
-        holder.itemView.setOnClickListener {
-            it.findNavController().navigate(ImageListFragmentDirections.actionImageListFragmentToImageDetailFragment(selectedPosition = position))
-        }
+        holder.itemTitle.text = item.title
+        holder.itemOwner.text = item.owner
+        holder.itemDesc.text = item.explanation
+
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: FragmentImageListSingleBinding) :
+    inner class ViewHolder(binding: FragmentImageDetailSingleBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val imgView: ImageView = binding.itemImage
-        val title: TextView = binding.itemTitle
+        val itemOwner: TextView = binding.itemOwner
+        val itemTitle: TextView = binding.itemTitle
+        val itemDesc: TextView = binding.itemDesc
     }
 }
