@@ -13,6 +13,9 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
+/**
+ *  This is a test class for testing ImageListUseCase interface
+ */
 class ImageListUseCaseTest {
     private lateinit var useCase: ImageListUseCase
 

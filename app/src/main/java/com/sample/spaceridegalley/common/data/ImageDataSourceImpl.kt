@@ -8,6 +8,9 @@ import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.common.data.model.GalleryItem
 import javax.inject.Inject
 
+/**
+ * This is a data layer class which provides few methods to get all the Gallery Items from static json file
+ * */
 class ImageDataSourceImpl @Inject constructor(private val appContext: Context) : ImageDataSource {
 
     /* Raed from static file*/

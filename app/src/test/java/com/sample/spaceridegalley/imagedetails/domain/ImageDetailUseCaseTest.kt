@@ -13,6 +13,9 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
+/**
+ *  This is a test class for testing ImageDetailUseCase interface
+ */
 internal class ImageDetailUseCaseTest {
     private lateinit var useCase: ImageDetailUseCase
 

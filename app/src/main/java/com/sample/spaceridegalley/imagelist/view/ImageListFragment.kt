@@ -17,7 +17,9 @@ import com.sample.spaceridegalley.imagelist.ImageListViewModel
 import com.sample.spaceridegalley.imagelist.ListImageUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-
+/**
+ * This is the fragment which shows list of media tiles in grid fashion list. Click on any tiles will take you to ImageDetailFragment
+ * */
 @AndroidEntryPoint
 class ImageListFragment : Fragment() {
 
@@ -52,11 +54,13 @@ class ImageListFragment : Fragment() {
                 viewModel.uiState.collect { uiState ->
                     when (uiState) {
                         is ListImageUiState.LOADED -> {
+                            // when data is available show the RCV and hide the loading message
                             binding.waitMsgView.visibility = View.GONE
                             binding.gridList.visibility = View.VISIBLE
                             (binding.gridList.adapter as ImageListRecyclerViewAdapter).submitItems(uiState.imageList)
                         }
                         ListImageUiState.UNINITIALIZED -> {
+                            // when data is still being loaded hide the RCV and show the loading message
                             binding.gridList.visibility = View.INVISIBLE
                             binding.waitMsgView.visibility = View.VISIBLE
                         }

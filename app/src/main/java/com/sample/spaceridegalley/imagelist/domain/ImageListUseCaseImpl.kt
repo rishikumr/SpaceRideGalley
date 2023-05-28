@@ -5,6 +5,9 @@ import com.sample.spaceridegalley.common.util.Constants
 import com.sample.spaceridegalley.imagelist.domain.model.ListItemModel
 import javax.inject.Inject
 
+/**
+ * This is a UseCase layer class for any data manipulation/ business logic needed for ImageListFragment UI data
+ * */
 class ImageListUseCaseImpl @Inject constructor(
     private val imageDataSource: ImageDataSource
 ) : ImageListUseCase {
