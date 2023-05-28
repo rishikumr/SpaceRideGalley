@@ -25,3 +25,9 @@ Score of the exercise is based on below points. Try to follow the coding convent
 5. Latest trends compose/hilt/koin/
 6. Good to have in Kotlin
 7. Proper naming conventions for methods, classes and properties
+
+## Demo screen recording :
+
+https://github.com/rishikumr/SpaceRideGalley/assets/31123825/accd2fa5-d8e6-460c-9c64-79b0c58b1a71
+
+
