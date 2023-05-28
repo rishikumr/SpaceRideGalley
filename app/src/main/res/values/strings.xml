@@ -2,4 +2,6 @@
     <string name="app_name">SpaceRideGalley</string>
     <string name="please_wait_message">Please wait while we fetch the data.</string>
     <string name="previewCardTitle">TitleOfTheImageCard</string>
+    <string name="previewCardOwner">OwnerOfTheImageCard</string>
+    <string name="previewCardDesc">DescOfTheImageCard</string>
 </resources>
