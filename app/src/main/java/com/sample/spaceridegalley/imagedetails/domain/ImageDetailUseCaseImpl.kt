@@ -1,8 +1,8 @@
-package com.sample.spaceridegalley.imagedetails.view
+package com.sample.spaceridegalley.imagedetails.domain
 
-import android.util.Log
 import com.sample.spaceridegalley.common.data.ImageDataSource
-import com.sample.spaceridegalley.util.Constants
+import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
+import com.sample.spaceridegalley.common.util.Constants
 import javax.inject.Inject
 
 class ImageDetailUseCaseImpl @Inject constructor(

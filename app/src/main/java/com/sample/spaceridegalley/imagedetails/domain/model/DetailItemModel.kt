@@ -1,4 +1,4 @@
-package com.sample.spaceridegalley.imagedetails.view
+package com.sample.spaceridegalley.imagedetails.domain.model
 
 data class DetailItemModel(
     val owner : String?,

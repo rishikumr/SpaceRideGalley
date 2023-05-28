@@ -1,6 +1,8 @@
 package com.sample.spaceridegalley.imagedetails.view
 
 import com.sample.spaceridegalley.common.data.ImageDataSource
+import com.sample.spaceridegalley.imagedetails.domain.ImageDetailUseCase
+import com.sample.spaceridegalley.imagedetails.domain.ImageDetailUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

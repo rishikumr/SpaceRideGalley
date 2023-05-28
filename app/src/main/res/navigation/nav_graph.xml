@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/imageListFragment"
-        android:name="com.sample.spaceridegalley.imagelist.ImageListFragment"
+        android:name="com.sample.spaceridegalley.imagelist.view.ImageListFragment"
         android:label="fragment_image_list_list"
         tools:layout="@layout/fragment_image_list_list" >
         <action
