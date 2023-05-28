@@ -19,13 +19,13 @@ class ImageListViewModel @Inject constructor(
 ) : ViewModel() {
 
     // Expose screen UI state
-    private val _uiState: MutableStateFlow<ListImageUiState> = MutableStateFlow(ListImageUiState.UNINITIALIZED)  // we could also use LiveData
+    private val _uiState: MutableStateFlow<ListImageUiState> = MutableStateFlow(ListImageUiState.UNINITIALIZED) // we could also use LiveData
     val uiState: StateFlow<ListImageUiState> = _uiState.asStateFlow()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             _uiState.update {
-                ListImageUiState.LOADED(imageList = useCase.getImageItemList() )
+                ListImageUiState.LOADED(imageList = useCase.getImageItemList())
             }
         }
     }
@@ -33,5 +33,5 @@ class ImageListViewModel @Inject constructor(
 
 sealed class ListImageUiState {
     object UNINITIALIZED : ListImageUiState()
-    data class LOADED(val imageList : List<ListItemModel>) : ListImageUiState()
+    data class LOADED(val imageList: List<ListItemModel>) : ListImageUiState()
 }

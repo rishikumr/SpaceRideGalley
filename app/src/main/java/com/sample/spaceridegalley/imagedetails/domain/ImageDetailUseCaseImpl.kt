@@ -1,8 +1,8 @@
 package com.sample.spaceridegalley.imagedetails.domain
 
 import com.sample.spaceridegalley.common.data.ImageDataSource
-import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
 import com.sample.spaceridegalley.common.util.Constants
+import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
 import javax.inject.Inject
 
 class ImageDetailUseCaseImpl @Inject constructor(
@@ -13,13 +13,13 @@ class ImageDetailUseCaseImpl @Inject constructor(
             .filter { it.media_type == Constants.MediaTypeImage }
             .sortedByDescending { it.date }
             .map {
-            DetailItemModel(
-                owner = it.copyright,
-                date  = it.date,
-                explanation = it.explanation,
-                hdurl = it.hdurl,
-                title = it.title,
-            )
-        }
+                DetailItemModel(
+                    owner = it.copyright,
+                    date = it.date,
+                    explanation = it.explanation,
+                    hdurl = it.hdurl,
+                    title = it.title
+                )
+            }
     }
 }

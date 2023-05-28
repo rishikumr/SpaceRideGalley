@@ -13,16 +13,14 @@ import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.databinding.FragmentImageDetailSingleBinding
 import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
 
-
 class ImageDetailsViewPagerAdapter(private val values: MutableList<DetailItemModel>) : RecyclerView.Adapter<ImageDetailsViewPagerAdapter.ViewHolder>() {
 
-    fun submitItems(newValues: List<DetailItemModel> ){
+    fun submitItems(newValues: List<DetailItemModel>) {
         values.clear()
         values.addAll(newValues)
         notifyItemRangeInserted(0, values.size)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
         return ViewHolder(
             FragmentImageDetailSingleBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -30,7 +28,6 @@ class ImageDetailsViewPagerAdapter(private val values: MutableList<DetailItemMod
                 false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -38,12 +35,12 @@ class ImageDetailsViewPagerAdapter(private val values: MutableList<DetailItemMod
         val context = holder.itemView.context
         val circularProgressDrawable =
             CircularProgressDrawable(context).apply {
-            strokeWidth = 5f
-            centerRadius = 30f
-            start()
-        }
+                strokeWidth = 5f
+                centerRadius = 30f
+                start()
+            }
 
-        val requestOptions = RequestOptions().apply{
+        val requestOptions = RequestOptions().apply {
             placeholder(circularProgressDrawable)
             skipMemoryCache(true)
             fitCenter()
@@ -52,14 +49,13 @@ class ImageDetailsViewPagerAdapter(private val values: MutableList<DetailItemMod
         }
 
         Glide.with(holder.itemView.context)
-            .load(item.hdurl) //passing your url to load image.
+            .load(item.hdurl) // passing your url to load image.
             .apply(requestOptions) // here you have all options you need
-            .into(holder.imgView) //pass imageView reference to appear the image.
+            .into(holder.imgView) // pass imageView reference to appear the image.
 
         holder.itemTitle.text = item.title
         holder.itemOwner.text = item.owner
         holder.itemDesc.text = item.explanation
-
     }
 
     override fun getItemCount(): Int = values.size

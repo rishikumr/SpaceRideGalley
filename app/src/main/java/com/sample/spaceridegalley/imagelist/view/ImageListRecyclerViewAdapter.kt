@@ -16,13 +16,12 @@ import com.sample.spaceridegalley.imagelist.domain.model.ListItemModel
 
 class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel>) : RecyclerView.Adapter<ImageListRecyclerViewAdapter.ViewHolder>() {
 
-    fun submitItems(newValues: List<ListItemModel>){
+    fun submitItems(newValues: List<ListItemModel>) {
         values.clear()
         values.addAll(newValues)
         notifyItemRangeInserted(0, values.size)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
         return ViewHolder(
             FragmentImageListSingleBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -30,7 +29,6 @@ class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel
                 false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -38,12 +36,12 @@ class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel
         val context = holder.itemView.context
         val circularProgressDrawable =
             CircularProgressDrawable(context).apply {
-            strokeWidth = 5f
-            centerRadius = 30f
-            start()
-        }
+                strokeWidth = 5f
+                centerRadius = 30f
+                start()
+            }
 
-        val requestOptions = RequestOptions().apply{
+        val requestOptions = RequestOptions().apply {
             placeholder(circularProgressDrawable)
             skipMemoryCache(true)
             fitCenter()
@@ -52,9 +50,9 @@ class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel
         }
 
         Glide.with(holder.itemView.context)
-            .load(item.lowQUrl) //passing your url to load image.
+            .load(item.lowQUrl) // passing your url to load image.
             .apply(requestOptions) // here you have all options you need
-            .into(holder.imgView) //pass imageView reference to appear the image.
+            .into(holder.imgView) // pass imageView reference to appear the image.
 
         holder.title.text = item.title
         holder.itemView.setOnClickListener {

@@ -1,8 +1,8 @@
 package com.sample.spaceridegalley.imagelist.domain
 
 import com.sample.spaceridegalley.common.data.ImageDataSource
-import com.sample.spaceridegalley.imagelist.domain.model.ListItemModel
 import com.sample.spaceridegalley.common.util.Constants
+import com.sample.spaceridegalley.imagelist.domain.model.ListItemModel
 import javax.inject.Inject
 
 class ImageListUseCaseImpl @Inject constructor(
@@ -17,6 +17,6 @@ class ImageListUseCaseImpl @Inject constructor(
                     lowQUrl = it.url,
                     title = it.title
                 )
-        }
+            }
     }
 }

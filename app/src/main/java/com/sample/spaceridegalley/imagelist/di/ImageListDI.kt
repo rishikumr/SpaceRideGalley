@@ -24,14 +24,14 @@ object ImageListModule {
 
     @Provides
     fun provideImageDataSource(
-        appCtx : Context
+        appCtx: Context
     ): ImageDataSource {
         return ImageDataSourceImpl(appCtx)
     }
 
     @Provides
     fun provideAppContext(
-        @ApplicationContext appCtx : Context
+        @ApplicationContext appCtx: Context
     ): Context {
         return appCtx
     }
