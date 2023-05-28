@@ -1,4 +1,4 @@
-package com.sample.spaceridegalley.imagelist
+package com.sample.spaceridegalley.imagelist.di
 
 import android.content.Context
 import com.sample.spaceridegalley.common.data.ImageDataSource
