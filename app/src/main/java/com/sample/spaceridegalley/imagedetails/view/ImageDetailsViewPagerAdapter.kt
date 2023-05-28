@@ -19,11 +19,10 @@ import com.sample.spaceridegalley.databinding.FragmentImageListSingleBinding
 
 class ImageDetailsViewPagerAdapter(private val values: MutableList<DetailItemModel>) : RecyclerView.Adapter<ImageDetailsViewPagerAdapter.ViewHolder>() {
 
-    @SuppressLint("NotifyDataSetChanged")
     fun submitItems(newValues: List<DetailItemModel> ){
         values.clear()
         values.addAll(newValues)
-        notifyDataSetChanged()
+        notifyItemRangeInserted(0, values.size)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -37,7 +36,6 @@ class ImageDetailsViewPagerAdapter(private val values: MutableList<DetailItemMod
 
     }
 
-    @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         val context = holder.itemView.context

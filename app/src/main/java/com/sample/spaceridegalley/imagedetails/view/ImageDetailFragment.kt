@@ -44,7 +44,7 @@ class ImageDetailFragment : Fragment() {
         binding.viewpager.apply {
             adapter = ImageDetailsViewPagerAdapter(mutableListOf())
             this.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
+            currentItem = selectedPosition
         }
         return binding.root
     }
@@ -57,8 +57,11 @@ class ImageDetailFragment : Fragment() {
                     when(uiState){
                         is DetailImageUiState.LOADED -> {
                             binding.waitMsgView.visibility = View.GONE
-                            binding.viewpager.visibility = View.VISIBLE
-                            (binding.viewpager.adapter as ImageDetailsViewPagerAdapter).submitItems(uiState.allImageList)
+                            binding.viewpager.apply {
+                                visibility = View.VISIBLE
+                                (adapter as ImageDetailsViewPagerAdapter).submitItems(uiState.allImageList)
+                                setCurrentItem(selectedPosition, false)
+                            }
                         }
                         DetailImageUiState.UNINITIALIZED -> {
                             binding.viewpager.visibility = View.INVISIBLE

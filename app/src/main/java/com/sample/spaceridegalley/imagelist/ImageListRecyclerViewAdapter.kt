@@ -16,11 +16,10 @@ import com.sample.spaceridegalley.databinding.FragmentImageListSingleBinding
 
 class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel>) : RecyclerView.Adapter<ImageListRecyclerViewAdapter.ViewHolder>() {
 
-    @SuppressLint("NotifyDataSetChanged")
     fun submitItems(newValues: List<ListItemModel>){
         values.clear()
         values.addAll(newValues)
-        notifyDataSetChanged()
+        notifyItemRangeInserted(0, values.size)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -34,7 +33,6 @@ class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel
 
     }
 
-    @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         val context = holder.itemView.context
