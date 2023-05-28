@@ -72,6 +72,7 @@ dependencies {
     /* Glide Image loading */
     implementation 'com.github.bumptech.glide:glide:4.15.1'
 
-
+    /* Mockk testing */
+    testImplementation 'io.mockk:mockk:1.13.5'
 
 }

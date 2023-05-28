@@ -1,4 +1,4 @@
-package com.sample.spaceridegalley.imagedetails.view
+package com.sample.spaceridegalley.imagedetails.di
 
 import com.sample.spaceridegalley.common.data.ImageDataSource
 import com.sample.spaceridegalley.imagedetails.domain.ImageDetailUseCase
