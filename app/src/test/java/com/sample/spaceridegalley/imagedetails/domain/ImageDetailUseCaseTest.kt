@@ -49,7 +49,7 @@ internal class ImageDetailUseCaseTest {
 
 private fun verifyData(result: List<DetailItemModel>, sampleGalleryItem: List<GalleryItem>) {
     Assert.assertEquals(
-        "Total item count should be 3 as per sample data. Please check ImageDetailTestSampleData -sampleGalleryItem",
+        "Total item count should be ${sampleGalleryItem.size} as per sample data. Please check ImageDetailTestSampleData -sampleGalleryItem",
         result.size,
         sampleGalleryItem.size
     )
