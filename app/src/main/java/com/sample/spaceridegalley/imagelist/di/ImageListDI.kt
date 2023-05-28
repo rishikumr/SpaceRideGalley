@@ -2,7 +2,9 @@ package com.sample.spaceridegalley.imagelist
 
 import android.content.Context
 import com.sample.spaceridegalley.common.data.ImageDataSource
-import com.sample.spaceridegalley.common.data.StaticDataSource
+import com.sample.spaceridegalley.common.data.ImageDataSourceImpl
+import com.sample.spaceridegalley.imagelist.domain.ImageListUseCase
+import com.sample.spaceridegalley.imagelist.domain.ImageListUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +26,7 @@ object ImageListModule {
     fun provideImageDataSource(
         appCtx : Context
     ): ImageDataSource {
-        return StaticDataSource(appCtx)
+        return ImageDataSourceImpl(appCtx)
     }
 
     @Provides

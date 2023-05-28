@@ -6,11 +6,9 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.common.data.model.GalleryItem
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class StaticDataSource  @Inject constructor (private val appContext : Context) : ImageDataSource {
+class ImageDataSourceImpl  @Inject constructor (private val appContext : Context) : ImageDataSource {
 
     /* Raed from static file*/
     override suspend fun getGalleryItems(): List<GalleryItem> {

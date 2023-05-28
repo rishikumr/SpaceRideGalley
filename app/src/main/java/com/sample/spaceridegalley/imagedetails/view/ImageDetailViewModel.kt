@@ -2,6 +2,8 @@ package com.sample.spaceridegalley.imagedetails.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
+import com.sample.spaceridegalley.imagedetails.domain.ImageDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

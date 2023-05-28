@@ -1,6 +1,5 @@
-package com.sample.spaceridegalley.imagelist
+package com.sample.spaceridegalley.imagelist.view
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -13,6 +12,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.databinding.FragmentImageListSingleBinding
+import com.sample.spaceridegalley.imagelist.domain.model.ListItemModel
 
 class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel>) : RecyclerView.Adapter<ImageListRecyclerViewAdapter.ViewHolder>() {
 
@@ -58,7 +58,11 @@ class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel
 
         holder.title.text = item.title
         holder.itemView.setOnClickListener {
-            it.findNavController().navigate(ImageListFragmentDirections.actionImageListFragmentToImageDetailFragment(selectedPosition = position))
+            it.findNavController().navigate(
+                ImageListFragmentDirections.actionImageListFragmentToImageDetailFragment(
+                    selectedPosition = position
+                )
+            )
         }
     }
 

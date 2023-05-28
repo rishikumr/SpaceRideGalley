@@ -1,7 +1,8 @@
-package com.sample.spaceridegalley.imagelist
+package com.sample.spaceridegalley.imagelist.domain
 
 import com.sample.spaceridegalley.common.data.ImageDataSource
-import com.sample.spaceridegalley.util.Constants
+import com.sample.spaceridegalley.imagelist.domain.model.ListItemModel
+import com.sample.spaceridegalley.common.util.Constants
 import javax.inject.Inject
 
 class ImageListUseCaseImpl @Inject constructor(

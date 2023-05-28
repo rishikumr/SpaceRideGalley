@@ -11,8 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2
 import com.sample.spaceridegalley.databinding.FragmentImageDetailBinding
-import com.sample.spaceridegalley.imagelist.ImageListRecyclerViewAdapter
-import com.sample.spaceridegalley.util.Constants.SelectedPositionKey
+import com.sample.spaceridegalley.common.util.Constants.SelectedPositionKey
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

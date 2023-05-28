@@ -1,4 +1,4 @@
-package com.sample.spaceridegalley.imagelist
+package com.sample.spaceridegalley.imagelist.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sample.spaceridegalley.databinding.FragmentImageListListBinding
-import com.sample.spaceridegalley.util.Constants.ColumnCount
+import com.sample.spaceridegalley.imagelist.ImageListViewModel
+import com.sample.spaceridegalley.imagelist.ListImageUiState
+import com.sample.spaceridegalley.common.util.Constants.ColumnCount
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.sample.spaceridegalley.util
+package com.sample.spaceridegalley.common.util
 
 object Constants {
     const val MediaTypeImage = "image"
