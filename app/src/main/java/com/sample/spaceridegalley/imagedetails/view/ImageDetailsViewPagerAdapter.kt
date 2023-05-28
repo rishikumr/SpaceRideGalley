@@ -12,7 +12,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.databinding.FragmentImageDetailSingleBinding
 import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
-
+/**
+ * This is RCV adapter class used to show items inside ViewPager view of ImageDetailFragment
+ * */
 class ImageDetailsViewPagerAdapter(private val values: MutableList<DetailItemModel>) : RecyclerView.Adapter<ImageDetailsViewPagerAdapter.ViewHolder>() {
 
     fun submitItems(newValues: List<DetailItemModel>) {

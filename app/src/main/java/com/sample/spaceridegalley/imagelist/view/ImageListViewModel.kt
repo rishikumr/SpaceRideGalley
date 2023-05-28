@@ -13,6 +13,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * This is a ViewModel class which holds the UI data to be shown in ImageListFragment
+ * */
 @HiltViewModel
 class ImageListViewModel @Inject constructor(
     useCase: ImageListUseCase

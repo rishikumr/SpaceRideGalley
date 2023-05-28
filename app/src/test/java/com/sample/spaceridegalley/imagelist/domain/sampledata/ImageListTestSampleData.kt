@@ -2,6 +2,9 @@ package com.sample.spaceridegalley.imagelist.domain.sampledata
 
 import com.sample.spaceridegalley.common.data.model.GalleryItem
 
+/**
+ *  This is sample data to test ImageListUseCaseTest
+ */
 object ImageListTestSampleData {
 
     val sampleGalleryItem = listOf(

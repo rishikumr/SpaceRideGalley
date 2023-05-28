@@ -13,7 +13,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.databinding.FragmentImageListSingleBinding
 import com.sample.spaceridegalley.imagelist.domain.model.ListItemModel
-
+/**
+ * This is RCV adapter class used to show items inside RCV list view of ImageListFragment
+ * */
 class ImageListRecyclerViewAdapter(private val values: MutableList<ListItemModel>) : RecyclerView.Adapter<ImageListRecyclerViewAdapter.ViewHolder>() {
 
     fun submitItems(newValues: List<ListItemModel>) {

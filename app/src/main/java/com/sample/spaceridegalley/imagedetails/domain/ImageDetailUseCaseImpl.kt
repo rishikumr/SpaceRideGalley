@@ -4,7 +4,9 @@ import com.sample.spaceridegalley.common.data.ImageDataSource
 import com.sample.spaceridegalley.common.util.Constants
 import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
 import javax.inject.Inject
-
+/**
+ * This is a UseCase layer class for any data manipulation/ business logic needed for ImageDetailFragment UI data
+ * */
 class ImageDetailUseCaseImpl @Inject constructor(
     private val imageDataSource: ImageDataSource
 ) : ImageDetailUseCase {

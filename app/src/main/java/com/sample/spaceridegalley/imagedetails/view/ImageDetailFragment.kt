@@ -14,7 +14,9 @@ import com.sample.spaceridegalley.common.util.Constants.SelectedPositionKey
 import com.sample.spaceridegalley.databinding.FragmentImageDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-
+/**
+ * This is the fragment which one media item in detail, with High quality image,owner and explanation of this media item. This is shown upon click on any tiles of ImageDetailFragment
+ * */
 @AndroidEntryPoint
 class ImageDetailFragment : Fragment() {
 
