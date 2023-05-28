@@ -11,27 +11,26 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sample.spaceridegalley.common.util.Constants.ColumnCount
 import com.sample.spaceridegalley.databinding.FragmentImageListListBinding
 import com.sample.spaceridegalley.imagelist.ImageListViewModel
 import com.sample.spaceridegalley.imagelist.ListImageUiState
-import com.sample.spaceridegalley.common.util.Constants.ColumnCount
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-/**
- * A fragment representing a list of Items.
- */
 @AndroidEntryPoint
 class ImageListFragment : Fragment() {
 
     private var _binding: FragmentImageListListBinding? = null
+
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     private val viewModel: ImageListViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentImageListListBinding.inflate(inflater, container, false)
@@ -50,8 +49,8 @@ class ImageListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect { uiState->
-                    when(uiState){
+                viewModel.uiState.collect { uiState ->
+                    when (uiState) {
                         is ListImageUiState.LOADED -> {
                             binding.waitMsgView.visibility = View.GONE
                             binding.gridList.visibility = View.VISIBLE
@@ -70,5 +69,4 @@ class ImageListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

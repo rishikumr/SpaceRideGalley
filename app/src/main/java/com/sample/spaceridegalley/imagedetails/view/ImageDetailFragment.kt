@@ -10,20 +10,18 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2
-import com.sample.spaceridegalley.databinding.FragmentImageDetailBinding
 import com.sample.spaceridegalley.common.util.Constants.SelectedPositionKey
+import com.sample.spaceridegalley.databinding.FragmentImageDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-/**
- * A fragment representing a detail of Item.
- */
 @AndroidEntryPoint
 class ImageDetailFragment : Fragment() {
 
     private var selectedPosition = 0
 
     private var _binding: FragmentImageDetailBinding? = null
+
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
     private val viewModel: ImageDetailViewModel by viewModels()
@@ -31,12 +29,13 @@ class ImageDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-           selectedPosition = it.getInt(SelectedPositionKey)
+            selectedPosition = it.getInt(SelectedPositionKey)
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentImageDetailBinding.inflate(inflater, container, false)
@@ -52,8 +51,8 @@ class ImageDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect { uiState->
-                    when(uiState){
+                viewModel.uiState.collect { uiState ->
+                    when (uiState) {
                         is DetailImageUiState.LOADED -> {
                             binding.waitMsgView.visibility = View.GONE
                             binding.viewpager.apply {
@@ -76,6 +75,4 @@ class ImageDetailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }

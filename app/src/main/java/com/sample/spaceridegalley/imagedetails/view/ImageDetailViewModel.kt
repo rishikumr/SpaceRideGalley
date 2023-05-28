@@ -2,8 +2,8 @@ package com.sample.spaceridegalley.imagedetails.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
 import com.sample.spaceridegalley.imagedetails.domain.ImageDetailUseCase
+import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,7 +25,7 @@ class ImageDetailViewModel @Inject constructor(
     init {
         viewModelScope.launch(Dispatchers.IO) {
             _uiState.update {
-                DetailImageUiState.LOADED(allImageList = useCase.getImageItemList() )
+                DetailImageUiState.LOADED(allImageList = useCase.getImageItemList())
             }
         }
     }
@@ -33,5 +33,5 @@ class ImageDetailViewModel @Inject constructor(
 
 sealed class DetailImageUiState {
     object UNINITIALIZED : DetailImageUiState()
-    data class LOADED(val allImageList : List<DetailItemModel>) : DetailImageUiState()
+    data class LOADED(val allImageList: List<DetailItemModel>) : DetailImageUiState()
 }
