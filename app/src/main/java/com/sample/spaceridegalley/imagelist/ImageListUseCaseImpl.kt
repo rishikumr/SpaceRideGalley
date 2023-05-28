@@ -10,7 +10,7 @@ class ImageListUseCaseImpl @Inject constructor(
     override suspend fun getImageItemList(): List<ListItemModel> {
         return imageDataSource.getGalleryItems()
             .filter { it.media_type == Constants.MediaTypeImage }
-            .sortedBy { it.date }  // TODO check it as expected order or need to reverse it
+            .sortedByDescending { it.date }
             .map {
                 ListItemModel(
                     lowQUrl = it.url,

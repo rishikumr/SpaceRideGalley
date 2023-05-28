@@ -11,7 +11,7 @@ class ImageDetailUseCaseImpl @Inject constructor(
     override suspend fun getImageItemList(): List<DetailItemModel> {
         return imageDataSource.getGalleryItems()
             .filter { it.media_type == Constants.MediaTypeImage }
-            .sortedBy { it.date }
+            .sortedByDescending { it.date }
             .map {
             DetailItemModel(
                 owner = it.copyright,
