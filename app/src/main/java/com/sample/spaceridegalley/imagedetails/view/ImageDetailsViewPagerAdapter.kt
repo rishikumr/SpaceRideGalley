@@ -9,9 +9,9 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.sample.imagefeaturelibrary.imagedetails.domain.model.DetailItemModel
 import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.databinding.FragmentImageDetailSingleBinding
-import com.sample.spaceridegalley.imagedetails.domain.model.DetailItemModel
 /**
  * This is RCV adapter class used to show items inside ViewPager view of ImageDetailFragment
  * */

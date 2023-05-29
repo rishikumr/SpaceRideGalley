@@ -11,12 +11,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sample.spaceridegalley.common.util.Constants.ColumnCount
+import com.sample.imagefeaturelibrary.common.util.Constants.ColumnCount
+import com.sample.imagefeaturelibrary.imagelist.view.ImageListViewModel
+import com.sample.imagefeaturelibrary.imagelist.view.ListImageUiState
 import com.sample.spaceridegalley.databinding.FragmentImageListListBinding
-import com.sample.spaceridegalley.imagelist.ImageListViewModel
-import com.sample.spaceridegalley.imagelist.ListImageUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+
 /**
  * This is the fragment which shows list of media tiles in grid fashion list. Click on any tiles will take you to ImageDetailFragment
  * */

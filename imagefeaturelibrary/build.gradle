@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-android'
@@ -8,17 +8,15 @@ plugins {
 }
 
 android {
-    namespace 'com.sample.spaceridegalley'
+    namespace 'com.sample.imagefeaturelibrary'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.sample.spaceridegalley"
         minSdk 26
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -31,18 +29,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
-    kotlinOptions {
-        jvmTarget = '17'
-    }
-
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
-    implementation project(path: ':imagefeaturelibrary')
+
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -75,5 +65,4 @@ dependencies {
 
     /* Mockk testing */
     testImplementation 'io.mockk:mockk:1.13.5'
-
 }
