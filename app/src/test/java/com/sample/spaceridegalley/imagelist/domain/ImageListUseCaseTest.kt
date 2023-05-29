@@ -52,9 +52,9 @@ class ImageListUseCaseTest {
 
 private fun verifyData(result: List<ListItemModel>, sampleGalleryItem: List<GalleryItem>) {
     Assert.assertEquals(
-        "Total item count should be ${sampleGalleryItem.size} as per sample data. Please check ImageListTestSampleData -sampleGalleryItem",
+        "Total item count should be ${sampleGalleryItem.size -1 } as per sample data. Please check ImageListTestSampleData -sampleGalleryItem",
         result.size,
-        sampleGalleryItem.size
+        sampleGalleryItem.size -1 /* minus 1 filtered out invalid case of an non_image item*/
     )
     result.forEachIndexed { index, listItemModel ->
         Assert.assertEquals(
