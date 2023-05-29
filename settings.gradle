@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "SpaceRideGalley"
 include ':app'
+include ':appcompose333'
+include ':appcompose'
