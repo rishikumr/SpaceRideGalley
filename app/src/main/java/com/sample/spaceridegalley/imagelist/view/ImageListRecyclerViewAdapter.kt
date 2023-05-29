@@ -10,9 +10,10 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.sample.imagefeaturelibrary.imagelist.domain.model.ListItemModel
 import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.databinding.FragmentImageListSingleBinding
-import com.sample.spaceridegalley.imagelist.domain.model.ListItemModel
+
 /**
  * This is RCV adapter class used to show items inside RCV list view of ImageListFragment
  * */

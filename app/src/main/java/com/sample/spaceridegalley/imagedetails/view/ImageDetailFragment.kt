@@ -10,7 +10,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2
-import com.sample.spaceridegalley.common.util.Constants.SelectedPositionKey
+import com.sample.imagefeaturelibrary.common.util.Constants.SelectedPositionKey
+import com.sample.imagefeaturelibrary.imagedetails.view.DetailImageUiState
+import com.sample.imagefeaturelibrary.imagedetails.view.ImageDetailViewModel
 import com.sample.spaceridegalley.databinding.FragmentImageDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
