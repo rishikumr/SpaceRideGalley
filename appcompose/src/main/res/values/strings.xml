@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">appcompose</string>
+    <string name="app_name">SpaceGallery</string>
+    <string name="waitMessage">Please wait while we load the data.</string>
 </resources>
