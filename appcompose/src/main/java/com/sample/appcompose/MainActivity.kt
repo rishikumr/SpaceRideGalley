@@ -3,20 +3,27 @@ package com.sample.appcompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.sample.appcompose.AppScreens.ImageList.screenRoute
+import androidx.navigation.navArgument
 import com.sample.appcompose.imagedetail.ImageDetailDestination
 import com.sample.appcompose.imagelist.ImageListDestination
 import com.sample.appcompose.ui.theme.SpaceRideGalleyTheme
+import com.sample.imagefeaturelibrary.imagedetails.view.ImageDetailViewModel
+import com.sample.imagefeaturelibrary.imagelist.view.ImageListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,12 +53,23 @@ fun AppNavHost(
         startDestination = startDestination
     ) {
         composable(route = AppScreens.ImageList.screenRoute) {
-            // val viewModel: ContentLibrarySearchViewModel = hiltViewModel()
+            val viewModel: ImageListViewModel = hiltViewModel()
             ImageListDestination(
-                onNavigateToFriends = { navController.navigate(AppScreens.ImageDetails.screenRoute) }
+                onNavigateToDetails = { argString: Int ->
+                    navController.navigate(route = AppScreens.ImageDetails.screenRoute + "/$argString")
+                }, viewModel = viewModel
             )
         }
-        composable(route = AppScreens.ImageDetails.screenRoute) { ImageDetailDestination(/*...*/) }
+        composable(
+            route = AppScreens.ImageDetails.screenRoute + "/{imagePosition}",
+            arguments = listOf(navArgument("imagePosition") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val viewModel: ImageDetailViewModel = hiltViewModel()
+            ImageDetailDestination(
+                viewModel = viewModel,
+                selectedPosition = backStackEntry.arguments?.getInt("imagePosition") ?: 0
+            )
+        }
     }
 }
 
