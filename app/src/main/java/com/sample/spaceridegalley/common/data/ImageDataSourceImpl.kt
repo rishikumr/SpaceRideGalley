@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.sample.spaceridegalley.R
 import com.sample.spaceridegalley.common.data.model.GalleryItem
+import com.sample.spaceridegalley.common.util.Constants
 import javax.inject.Inject
 
 /**
@@ -15,12 +16,7 @@ class ImageDataSourceImpl @Inject constructor(private val appContext: Context) :
 
     /* Raed from static file*/
     override suspend fun getGalleryItems(): List<GalleryItem> {
-        return readRawJson(appContext, R.raw.nasa_details)
+        return Constants.readRawJson(appContext, R.raw.nasa_details)
     }
 }
 
-private inline fun <reified T> readRawJson(appContext: Context, @RawRes rawResId: Int): T {
-    appContext.resources.openRawResource(rawResId).bufferedReader().use {
-        return Gson().fromJson<T>(it, object : TypeToken<T>() {}.type)
-    }
-}
