@@ -4,6 +4,11 @@ This repository is created to demonstrate and complete an assignment requiring f
 ## Goal : 
 Create an Android APP which show a list of SPACE iamges in a grid fashion and upon clicking on one tile would take you to detail screen of that image.
 
+## Code Architecture :
+There are total 3 modules in repo. 'app' and 'appcompose' are the two application modules, which results in respective view based and compose based app. Third module is 'imagefeaturelibrary' is an androdi library module which provide non-ui code to both app and appcompose module.
+
+This multi module App follows MVVM with Clean architecture. Uses Hilt DI, Coil Image loading, Coroutin and Flows. Compose UI is also present in 'appcompose' module.
+
 ## Screens :
 1. Images Grid Screen
 This is the home screen. When it launches, show a scrollable grid of pictures starting with
